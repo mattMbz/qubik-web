@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form %}
+
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+
+{% if error %}
+    <div class="alert alert-danger alert-dismissible position-absolute top-0 start-50 translate-middle-x mt-5">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Attention!</strong> {{error}}
+    </div>
+{% endif %}
+
+    <div class="center login">
+        <div class="card shadow border-0" style="width: 400px;">
+            <div class="d-flex align-items-center justify-content-center">
+                <img src="/static/images/logo.svg" alt="Logo">
+            </div>
+            <hr>
+            <div class="card-body">
+                <form method="post" novalidate>
+                    {{ render_form(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

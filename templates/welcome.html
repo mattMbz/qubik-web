@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Welcome {% endblock title %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <div>
+        <img src="/static/images/qubik-logo.svg" alt="Logo">
+    </div>
+    <code class="mt-5">Version 0.1</code>
+    <h2 class="mt-5">Welcome!</h2>
+
+    <p class="lead">
+        Qubik Hypervisor is a web application for managing your virtual machines.
+    </p>
+    <p>
+        <a href="{{ url_for('show_signin_form') }}">Sign up</a> to begin Now!
+    </p>
+    <p>
+        <a href="{{ url_for('show_signin_form') }}">Sign in</a> if you're already registered!
+    </p>
+    <p>
+        Get <a href="#">more information</a> about this project.
+    </p>
+</div>
+{% endblock content %}

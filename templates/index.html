@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block content %}
+    Máquinas virtuales {{numbers}}
+    <ol>
+    {% for vm in virtual_machines %}
+            <li>{{vm}}</li>
+    {% endfor %}
+    </ol>
+{% endblock content %}
