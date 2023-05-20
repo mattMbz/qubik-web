@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="javascript:void(0)">
-      <img src="/static/images/logo.svg" alt="" srcset="">
+      <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="" srcset="">
     </a>
     <div class="" id="mynavbar">
       <ul class="navbar-nav me-auto">
@@ -12,7 +12,7 @@
       <div class="nav-item d-flex">
         <a class="nav-link" href="{{url_for('logout')}}">
           Exit
-          <img src="/static/images/logout.ico" alt="">
+          <img src="{{ url_for('static', filename='images/logout.ico') }}" alt="">
         </a>
       </div>
     </div>

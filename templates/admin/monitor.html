@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mt-3">
     <div class="center-line">
-      <img src="/static/images/resources.png" alt="Icono">
+      <img src="{{ url_for('static', filename='images/resources.png') }}" alt="Icono">
       <span class="ml-2 fs-5">Monitor de Recursos</span>
     </div>
 </div>
@@ -27,7 +27,7 @@
     </ul>
   
     <!-- Tab panes -->
-    <div class="tab-content">
+    <div class="tab-content" id="hypervMonitor">
       <div id="home" class="container tab-pane active"><br>
         <span>CPU 0</span> 
         <span class="mt-3">
@@ -60,24 +60,68 @@
       </div>
       <div id="menu1" class="container tab-pane fade"><br>
         <span>Memory used:</span> <br>
-        <p>68 of 768 MB</p> <br>
+        <span>Total: 4GB</span> <br>
+        <span>Used: 2.34GB</span> <br>
+        <br>
         <span class="mt-3">
             <div class="progress"> 
-              <div class="progress-bar" style="width:9%">9%</div>
+              <div class="progress-bar" style="width:53%">53%</div>
             </div>
         </span>
       </div>
       <div id="menu2" class="container tab-pane fade"><br>
         <span>Size HD used:</span> <br>
         <!-- <p>4 of 10GB</p> <br> -->
-        <p>Total: 10GB</p> <br>
-        <p>Used: 4GB</p> <br>
+        <span>Total: 10GB</span> <br>
+        <span>Used: 4GB</span> <br>
+        <br>
         <span class="mt-3">
             <div class="progress"> 
-              <div class="progress-bar" style="width:41%">41%</div>
+              <div class="progress-bar bg-success" style="width:41%">41%</div>
             </div>
         </span>
       </div>
     </div>
+
+    <hr>
+
+    <h5>Your virtual machines</h5>
+    <br>
+    
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#edfr35">guarani3.16</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#fm0822">guarani3.17</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#yyte33">kolla4.5</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content" id="vm-monitor">
+    <div id="edfr35" class="container tab-pane active"><br>
+        <span>v-cpu0: 13%</span> <br>
+        <span>v-cpu1: 35%</span> <br>
+        <span>v-ram: 32%</span>
+    </div>
+    <div id="fm0822" class="container tab-pane fade"><br>
+        <span>v-cpu0: 13%</span> <br>
+        <span>v-cpu1: 35%</span> <br>
+        <span>v-ram: 32%</span>
+    </div>
+    <div id="yyte33" class="container tab-pane fade"><br>
+        <span>v-cpu0: 13%</span> <br>
+        <span>v-cpu1: 35%</span> <br>
+        <span>v-ram: 32%</span>
+    </div>
+  </div>
+</div>
+
+
+
   </div>
 {% endblock content %}

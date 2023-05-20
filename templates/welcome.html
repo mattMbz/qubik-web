@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container text-center mt-5">
     <div>
-        <img src="/static/images/qubik-logo.svg" alt="Logo">
+        <img src="{{ url_for('static', filename='images/qubik-logo.svg') }}" alt="Logo">
     </div>
     <code class="mt-5">Version 0.1</code>
     <h2 class="mt-5">Welcome!</h2>

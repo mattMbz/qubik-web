@@ -7,7 +7,7 @@
 {% block content %}
     <div class="container mt-3">
         <div class="center-line">
-          <img src="/static/images/monitor.png" alt="Icono">
+          <img src="{{ url_for('static', filename='images/monitor.png') }}" alt="Icono">
           <span class="ml-2 fs-5">Your Virtual Machines: {{numbers}}</span>
         </div>
         <ol>

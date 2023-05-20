@@ -11,3 +11,11 @@
 .nav-link:hover {
     text-decoration: underline;
 }
+
+#hypervMonitor {
+    height: 300px;
+}
+
+#vm-monitor {
+    height: 300px;
+}
