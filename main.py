@@ -40,6 +40,25 @@ def welcome():
     return render_template('welcome.html')
 #End_def
 
+@app.route('/delete')
+def delete():
+    return render_template('/admin/delete_vm.html')
+#End_def
+
+@app.route('/monitor')
+def monitor():
+    return render_template('/admin/monitor.html')
+#End_def
+
+@app.route('/tasks')
+def tasks():
+    return render_template('/admin/tasks.html')
+#End_def
+
+@app.route('/createvm')
+def create_vm():
+    return render_template('/admin/create_vm.html')
+#End_def
 
 @app.route("/vmachine/<string:slug>")
 def show_virtual_machine(slug):

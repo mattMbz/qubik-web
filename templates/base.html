@@ -19,21 +19,9 @@
     {% if current_user.is_anonymous %}
     <!-- <a href="{{ url_for('show_signin_form') }}">Login</a> -->
     {% else %}
-        <header class="d-flex justify-content-between align-items-center mx-3 mt-3">
-            <div class="ml-1">
-                <img src="/static/images/logo.svg" alt="" srcset="">
-            </div>
-            <div class="mr-1 text-center">
-                <img src="/static/images/avatar.png" alt="" width="60">
-                <div class="username">{{ current_user.name }}</div>
-            </div>
-        </header>
-        <hr>
-        <nav>
-            <a href="{{ url_for('index') }}">Main Panel</a>
-            <a href="{{ url_for('logout') }}">Logout</a>
-        </nav>
-        {% endif %}
+        {% include 'navbar.html' %}
+    {% endif %}
+
     <!-- Page content -->
     {% block content %} {% endblock content %}
     

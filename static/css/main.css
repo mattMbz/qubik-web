@@ -7,3 +7,7 @@
     align-items: center;
     height: 95vh;
 }
+
+.nav-link:hover {
+    text-decoration: underline;
+}
