@@ -72,7 +72,7 @@ def delete():
 
 @app.route('/monitor')
 def monitor():
-    return render_template('/admin/monitor.html')
+    return render_template('/admin/monitor.html', **vms)
 #End_def
 
 @app.route('/tasks')

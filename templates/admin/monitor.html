@@ -2,126 +2,107 @@
 
 {% block content %}
 <div class="container mt-3">
-    <div class="center-line">
-      <img src="{{ url_for('static', filename='images/resources.png') }}" alt="Icono">
-      <span class="ml-2 fs-5">Monitor de Recursos</span>
-    </div>
+  <div class="center-line">
+    <img src="{{ url_for('static', filename='images/resources.png') }}" alt="Icono">
+    <span class="ml-2 fs-5">Resource Monitor</span>
+  </div>
 </div>
 <div class="container mt-3">
-    <h5>Hypervisor</h5>
-    <br>
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" data-bs-toggle="tab" href="#home">CPU</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#menu1">RAM</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#menu2">Disk</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-bs-toggle="tab" href="#menu3">Graph</a>
-      </li>
-    </ul>
-  
-    <!-- Tab panes -->
-    <div class="tab-content" id="hyperv-monitor">
-      <div id="home" class="container tab-pane active"><br>
-        <span>CPU 0</span> 
-        <span class="mt-3">
-            <div class="progress">
-              <div class="progress-bar bg-danger" style="width:12%">12%</div>
-            </div>
-        </span>
-        <br>
-        <span>CPU 1</span>
-        <span class="mt-3">
-            <div class="progress"> 
-              <div class="progress-bar bg-danger" style="width:9%">9%</div>
-            </div>
-        </span>
-        <br>
-        <span>CPU 2</span>
-        <span class="mt-3">
-            <div class="progress">
-              <div class="progress-bar bg-danger" style="width:3%">3%</div>
-            </div>
-        </span>
-        <br>
-        <span>CPU 3</span>
-        <span class="mt-3">
-            <div class="progress">
-              <div class="progress-bar bg-danger" style="width:5%">5%</div>
-            </div>
-        </span>
-        <br>
-      </div>
-      <div id="menu1" class="container tab-pane fade"><br>
-        <span>Memory used:</span> <br>
-        <span>Total: 4GB</span> <br>
-        <span>Used: 2.34GB</span> <br>
-        <br>
-        <span class="mt-3">
-            <div class="progress"> 
-              <div class="progress-bar" style="width:53%">53%</div>
-            </div>
-        </span>
-      </div>
-      <div id="menu2" class="container tab-pane fade"><br>
-        <span>Size HD used:</span> <br>
-        <!-- <p>4 of 10GB</p> <br> -->
-        <span>Total: 10GB</span> <br>
-        <span>Used: 4GB</span> <br>
-        <br>
-        <span class="mt-3">
-            <div class="progress"> 
-              <div class="progress-bar bg-success" style="width:41%">41%</div>
-            </div>
-        </span>
-      </div>
-    </div>
-
-    <hr>
-
-    <h5>Your virtual machines</h5>
-    <br>
-    
-<!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
+  <h5>Hypervisor</h5>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" data-bs-toggle="tab" href="#edfr35">guarani3.16</a>
+      <a class="nav-link active" data-bs-toggle="tab" href="#home">Resources</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#fm0822">guarani3.17</a>
+      <a class="nav-link" data-bs-toggle="tab" href="#menu0">CPU</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" href="#yyte33">kolla4.5</a>
+      <a class="nav-link" data-bs-toggle="tab" href="#menu1">RAM</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu2">Disk</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu3">Graph</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu4">Properties</a>
     </li>
   </ul>
 
   <!-- Tab panes -->
-  <div class="tab-content" id="vm-monitor">
-    <div id="edfr35" class="container tab-pane active"><br>
-        <span>v-cpu0: 13%</span> <br>
-        <span>v-cpu1: 35%</span> <br>
-        <span>v-ram: 32%</span>
+  <div class="tab-content" id="hyperv-monitor">
+    <div id="home" class="container tab-pane active">
+      <p class="mt-5">
+        Here you can visualize the CPU usage, memory, and disk space utilized by the Hypervisor.
+      </p>
     </div>
-    <div id="fm0822" class="container tab-pane fade"><br>
-        <span>v-cpu0: 13%</span> <br>
-        <span>v-cpu1: 35%</span> <br>
-        <span>v-ram: 32%</span>
+    <div id="menu0" class="container tab-pane"><br>
+      <div class="mb-3">
+        <img src="{{url_for('static', filename='images/vcpu.png')}}" alt="">
+      </div>
+      <span>CPU 0</span>
+      <span class="mt-3">
+        <div class="progress">
+          <div class="progress-bar bg-danger" style="width:12%">12%</div>
+        </div>
+      </span>
+      <br>
+      <span>CPU 1</span>
+      <span class="mt-3">
+        <div class="progress">
+          <div class="progress-bar bg-danger" style="width:9%">9%</div>
+        </div>
+      </span>
+      <br>
+      <span>CPU 2</span>
+      <span class="mt-3">
+        <div class="progress">
+          <div class="progress-bar bg-danger" style="width:3%">3%</div>
+        </div>
+      </span>
+      <br>
+      <span>CPU 3</span>
+      <span class="mt-3">
+        <div class="progress">
+          <div class="progress-bar bg-danger" style="width:5%">5%</div>
+        </div>
+      </span>
+      <br>
     </div>
-    <div id="yyte33" class="container tab-pane fade"><br>
-        <span>v-cpu0: 13%</span> <br>
-        <span>v-cpu1: 35%</span> <br>
-        <span>v-ram: 32%</span>
+    
+    <div id="menu1" class="container tab-pane fade"><br>
+      <div class="">
+        <img src="{{url_for('static', filename='images/vram.png')}}" alt="">
+      </div>
+      <span>Memory used:</span> <br>
+      <span>Total: 4GB</span> <br>
+      <span>Used: 2.34GB</span> <br>
+      <br>
+      <span class="mt-3">
+        <div class="progress">
+          <div class="progress-bar" style="width:53%">53%</div>
+        </div>
+      </span>
     </div>
-  </div>
-</div>
 
-
+    <div id="menu2" class="container tab-pane fade"><br>
+      <div class="mb-3">
+        <img src="{{url_for('static', filename='images/vdisk.svg')}}" alt="">
+      </div>
+      <span>Size HD used:</span> <br>
+      <!-- <p>4 of 10GB</p> <br> -->
+      <span>Total: 10GB</span> <br>
+      <span>Used: 4GB</span> <br>
+      <br>
+      <span class="mt-3">
+        <div class="progress">
+          <div class="progress-bar bg-success" style="width:41%">41%</div>
+        </div>
+      </span>
+    </div>
 
   </div>
 {% endblock content %}
