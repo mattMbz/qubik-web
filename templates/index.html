@@ -5,16 +5,49 @@
 {% endblock title %}
 
 {% block content %}
-    <div class="container mt-3">
-        <div class="center-line">
-          <img src="{{ url_for('static', filename='images/monitor.png') }}" alt="Icono">
-          <span class="ml-2 fs-5">Your Virtual Machines: {{numbers}}</span>
-        </div>
-        <ol>
-            {% for vm in virtual_machines %}
-                <li>{{vm}}</li>
-            {% endfor %}
-        </ol>
+<div class="container mt-3">
+    <div class="center-line">
+        <img src="{{ url_for('static', filename='images/monitor.png') }}" alt="Icono">
+        <span class="ml-2 fs-5">Your Virtual Machines: {{numbers}}</span>
     </div>
-
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        {% for vm in virtual_machines %}
+        <div class="col h-100">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>{{vm.name}}</span>
+                    <span class="dropdown">
+                        <button
+                            type="button"
+                            class="btn btn-outline-secondary border-0"
+                            data-bs-toggle="dropdown"
+                        >...</button>
+                        <div class="dropdown-menu p-3" style="width: 280px; background-color: #eaf584;">
+                           <div class="small">Name: {{vm.name}}</div>
+                           <div class="small">ID: {{vm.id}}</div>
+                           <hr>
+                           <div class="small">App: {{vm.appName}}</div>
+                           <div class="small">Version: {{vm.version}}</div>
+                           <hr>
+                           <div class="small">V-CPU: {{vm.vcpu}}</div>
+                           <div class="small">V-RAM: 200MB / {{vm.vram}}GB (35%)</div>
+                           <div class="small">V-DISK: 3GB / {{vm.vdisk}}GB (6%)</div>
+                        </div>                          
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <span>id:{{vm.id}}</span>
+                    </div>
+                    <div class="text-success">{{vm.status}}</div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="toggleSwitch">
+                        <label class="form-check-label" for="toggleSwitch"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  </div>
 {% endblock content %}

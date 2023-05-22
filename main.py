@@ -1,4 +1,4 @@
-import os
+import os, uuid
 
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_bootstrap import Bootstrap5
@@ -7,8 +7,8 @@ from flask_login import LoginManager, current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 from dotenv import load_dotenv
 
-from forms import SignupForm, SignInForm
-from models import User, users, get_user
+from forms import SignupForm, SignInForm, CreateVirtualMachineForm
+from models import User, users, get_user 
 
 
 app = Flask(__name__)
@@ -18,7 +18,32 @@ bootstrap = Bootstrap5(app)
 login_manager = LoginManager(app)
 login_manager.login_view = "show_signin_form"
 
-virtual_machines = ['nodejs-app', 'Debian10-vm', 'flaskapi', 'vm-universidad']
+virtual_machines = [
+    {
+     'name':'nodejs-app', 
+     'id': str(uuid.uuid4()).split('-')[4],
+     'status': 'ON',
+     'appName':'siu guaraní 3.17',
+     'version':'3.17',
+     'vcpu':'4',
+     'vram':'4',
+     'vdisk':'10',
+    },
+    {
+     'name':'Debian10-vm', 
+     'id': str(uuid.uuid4()).split('-')[4],
+     'status':'ON',
+    },
+    {
+        'name':'flaskapi',  
+        'id': str(uuid.uuid4()).split('-')[4],
+        'status': 'ON'
+    },
+    {'name':'vm-universidad', 'id': str(uuid.uuid4()).split('-')[4], 'status': 'ON'},
+    {'name':'vm-universidad', 'id': str(uuid.uuid4()).split('-')[4], 'status': 'ON'},
+    {'name':'vm-universidad', 'id': str(uuid.uuid4()).split('-')[4], 'status': 'ON'},
+    {'name':'vm-universidad', 'id': str(uuid.uuid4()).split('-')[4], 'status': 'ON'}
+]
 
 vms = {
     'virtual_machines' : virtual_machines,
@@ -42,7 +67,7 @@ def welcome():
 
 @app.route('/delete')
 def delete():
-    return render_template('/admin/delete_vm.html')
+    return render_template('/admin/delete_vm.html', **vms)
 #End_def
 
 @app.route('/monitor')
@@ -57,7 +82,11 @@ def tasks():
 
 @app.route('/createvm')
 def create_vm():
-    return render_template('/admin/create_vm.html')
+    context = {
+        'form': CreateVirtualMachineForm(),
+        'message': ''
+    }
+    return render_template('/admin/create_vm.html', **context)
 #End_def
 
 @app.route("/vmachine/<string:slug>")

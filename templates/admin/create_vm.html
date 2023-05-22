@@ -1,10 +1,33 @@
 {% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_form_row %}
+
+{% block title %} Add new VM {% endblock %}
+
 
 {% block content %}
 <div class="container mt-3">
-    <div class="center-line">
-      <img src="{{ url_for('static', filename='images/add.png') }}" alt="Icono">
-      <span class="ml-2 fs-5">Create new virtual machine</span>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <div class="center-line mb-4">
+            <img src="{{ url_for('static', filename='images/add.png') }}" alt="Icono">
+            <span class="ml-2 fs-5">Create new virtual machine</span>
+          </div>
+          <form method="POST">
+            {{ form.csfr_token }}
+            {{ render_form_row([form.virtual_machine_name]) }} 
+            {{ render_form_row([form.application_name, form.version]) }}
+            {{ render_form_row([form.location_host]) }}
+            {{ render_form_row([form.cpu, form.ram, form.disk], col_map={'disabled': 'disabled'}) }}
+            <hr>
+            {{ render_form_row([form.submit]) }}
+          </form>
+        </div>
+      </div>
     </div>
-</div>    
+  </div>
+</div>
+
+
 {% endblock content %}
